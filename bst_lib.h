@@ -2,6 +2,25 @@
 
 using namespace std;
 
+#ifndef bst_lib_h
+#define bst_lib_h
+
+class Node{
+    private:
+        int data;
+        int weight;
+        Node* lchild;
+        Node* rchild;
+    public:
+        Node(int data, int weight = 1): data{data}, weight{weight}, lchild{nullptr}, rchild{nullptr}{}
+        ~Node(){}
+        Node* insertR(int k);
+        void inOrder();
+};
+
+#endif
+
+/*
 struct Node{
     int key;
     int weight = 1;
@@ -183,3 +202,4 @@ bool is_bst(Node* node){
 
     return true;
 }
+*/
