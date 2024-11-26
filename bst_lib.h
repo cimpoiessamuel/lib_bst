@@ -15,6 +15,9 @@ class Node{
         Node(int data, int weight = 1): data{data}, weight{weight}, lchild{nullptr}, rchild{nullptr}{}
         ~Node(){}
         Node* insertR(int k);
+        int height();
+        Node* searchR(int k);
+        bool isBst();
         void inOrder();
 };
 
