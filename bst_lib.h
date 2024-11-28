@@ -18,6 +18,7 @@ class Node{
         Node* insertI(int k);
         int height();
         Node* searchR(int k);
+        Node* searchI(int k);
         bool isBst();
         void inOrder();
         void preOrder();

@@ -65,8 +65,23 @@ Node* Node::searchR(int k){
     if(k == data) return this;
 
     if(k > data) return rchild->searchR(k);
-    if(k < data) return lchild->searchR(k);
+    else return lchild->searchR(k);
 
+    return NULL;
+}
+
+Node* Node::searchI(int k){
+    if(this == NULL) return NULL;
+
+    Node* current = this;
+
+    while(current != NULL){
+        if(current->data == k) return current;
+
+        if(k > current->data) current = current->rchild;
+        else current = current->lchild;
+    }
+    
     return NULL;
 }
 
