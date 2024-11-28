@@ -19,6 +19,37 @@ Node* Node::insertR(int k){
     return this;
 }
 
+Node* Node::insertI(int k){
+    if(this == NULL) return new Node(k);
+
+    Node* current = this;
+
+    while(current != NULL){
+        if(current->data == k){
+            current->weight++;
+            return this;
+        }
+
+        if(k > current->data){
+            if(current->rchild == NULL){
+                current->rchild = new Node(k);
+                return this;
+            }
+
+            current = current->rchild;
+        }else{
+            if(current->lchild == NULL){
+                current->lchild = new Node(k);
+                return this;
+            }
+
+            current = current->lchild;
+        }
+    }
+
+    return this;
+}
+
 int Node::height(){
     if(this == NULL) return 0;
 
@@ -67,4 +98,20 @@ void Node::inOrder(){
     lchild->inOrder();
     cout << data << ' ';
     rchild->inOrder();
+}
+
+void Node::preOrder(){
+    if(this == NULL) return;
+
+    cout << data << ' ';
+    lchild->preOrder();
+    rchild->preOrder();
+}
+
+void Node::postOrder(){
+    if(this == NULL) return;
+
+    lchild->postOrder();
+    rchild->postOrder();
+    cout << data << ' ';
 }
