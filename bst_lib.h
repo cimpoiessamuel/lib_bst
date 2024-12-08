@@ -23,6 +23,9 @@ class Node{
         void inOrder();
         void preOrder();
         void postOrder();
+
+        friend ostream& operator<<(ostream &os, const Node &n);
+        friend istream& operator>>(istream &is, Node &n);
 };
 
 #endif
