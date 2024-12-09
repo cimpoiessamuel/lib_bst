@@ -26,6 +26,39 @@ istream& operator>>(istream &is, Node &n){
     cout << "Type Weight: ";
     is >> n.weight;
 
+    n.rchild = nullptr;
+    n.lchild = nullptr;
+
+    return is;
+}
+
+ostream& operator<<(ostream &os, const Node* &n){
+    os << "Data: " << n->data << '\n';
+    os << "Weight: " << n->weight << '\n';
+
+    if(n->rchild != NULL){
+        os << "Right Child Data: " << n->rchild->data << '\n';
+        os << "Right Child Weight: " << n->rchild->weight << '\n';
+    }
+
+    if(n->lchild != NULL){
+        os << "Left Child Data: " << n->lchild->data << '\n';
+        os << "Left Child Weight: " << n->lchild->weight << '\n';
+    }
+
+    return os;
+}
+
+istream& operator>>(istream &is, Node* &n){
+    cout << "Type Data: ";
+    is >> n->data;
+
+    cout << "Type Weight: ";
+    is >> n->weight;
+
+    n->rchild = nullptr;
+    n->lchild = nullptr;
+
     return is;
 }
 

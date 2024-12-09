@@ -26,6 +26,8 @@ class Node{
 
         friend ostream& operator<<(ostream &os, const Node &n);
         friend istream& operator>>(istream &is, Node &n);
+        friend ostream& operator<<(ostream &os, const Node* &n);
+        friend istream& operator>>(istream &is, Node* &n);
 };
 
 #endif
