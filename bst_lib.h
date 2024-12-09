@@ -16,6 +16,7 @@ class Node{
         ~Node(){}
         Node* insertR(int k);
         Node* insertI(int k);
+        Node* deleteNode(int k);
         int height();
         Node* searchR(int k);
         Node* searchI(int k);
@@ -23,6 +24,8 @@ class Node{
         void inOrder();
         void preOrder();
         void postOrder();
+
+        friend Node* nextInOrder(Node* n);
 };
 
 #endif

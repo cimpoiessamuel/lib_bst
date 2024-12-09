@@ -50,6 +50,52 @@ Node* Node::insertI(int k){
     return this;
 }
 
+Node* nextInOrder(Node* n){
+    if(n->lchild == NULL) return n;
+
+    n = nextInOrder(n->lchild);
+
+    return n;
+}
+
+Node* Node::deleteNode(int k){
+    if(this == NULL) return NULL;
+
+    if(data == k){
+        if(rchild == NULL && lchild == NULL){
+            delete this;
+            return NULL;
+        }
+
+        if(rchild != NULL && lchild != NULL){
+            data = nextInOrder(rchild)->data;
+            weight = nextInOrder(rchild)->weight;
+
+            rchild = rchild->deleteNode(data);
+            return this;
+        }
+
+        if(rchild != NULL){
+            Node* t = rchild;
+
+            delete this;
+            return t;
+        }
+
+        if(lchild != NULL){
+            Node* t = lchild;
+
+            delete this;
+            return t;
+        }
+    }
+
+    if(k > data) rchild = rchild->deleteNode(k);
+    if(k < data) lchild = lchild->deleteNode(k);
+
+    return this;
+}
+
 int Node::height(){
     if(this == NULL) return 0;
 
